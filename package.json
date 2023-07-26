@@ -1,0 +1,27 @@
+{
+  "name": "step-function-lab",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "deploy": "serverless deploy",
+    "destroy": "serverless remove"
+  },
+  "keywords": [],
+  "author": "Silas Stoffel<silas.stofel@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@serverless/typescript": "^3.30.1",
+    "@types/aws-lambda": "^8.10.119",
+    "@types/node": "^20.2.5",
+    "aws-sdk": "^2.1399.0",
+    "esbuild": "^0.18.7",
+    "serverless-esbuild": "^1.45.1",
+    "serverless-plugin-typescript": "^2.1.4",
+    "serverless-step-functions": "^3.14.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "ulid": "^2.3.0"
+  }
+}
