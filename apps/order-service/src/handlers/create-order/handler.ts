@@ -25,12 +25,21 @@ export const main = async (event: APIGatewayEvent) => {
   const data = JSON.stringify(order);
 
   const params = {
-    stateMachineArn:
-      "arn:aws:states:us-east-1:808056304349:stateMachine:order-service-dev-order-created",
+    stateMachineArn: process.env.CREATED_ORDER_SF_ARN as string,
     input: data,
   };
 
-  await stepFunction.startExecution(params).promise();
+  const promises = [
+    stepFunction.startExecution(params).promise(),
+    stepFunction
+      .startExecution({
+        ...params,
+        stateMachineArn: process.env.CREATED_ORDER_PARALLEL_SF_ARN as string,
+      })
+      .promise(),
+  ];
+
+  await Promise.all(promises);
 
   return { statusCode: 200, body: data };
 };

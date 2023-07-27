@@ -27,6 +27,11 @@ const slsConfig: ServerlessConfig = {
         ],
       },
     },
+    environment: {
+      CREATED_ORDER_SF_ARN: stepFunctionPermission.orderCreatedArn,
+      CREATED_ORDER_PARALLEL_SF_ARN:
+        stepFunctionPermission.orderCreatedParallelFlowArn,
+    },
   },
   functions,
   stepFunctions: {
