@@ -13,7 +13,7 @@ export default {
         },
         Parameters: {
           FunctionName:
-            "arn:aws:lambda:us-east-1:808056304349:function:${self:service}-${self:provider.stage}-order-created-flow",
+            "arn:aws:lambda:${self:provider.region}:${aws:accountId}:function:${self:service}-${self:provider.stage}-order-created-flow",
           Payload: {
             "order.$": "$",
             action: "send-mail",
@@ -29,7 +29,7 @@ export default {
         ResultPath: "$.sendWhatsAppMessageOutput",
         Parameters: {
           FunctionName:
-            "arn:aws:lambda:us-east-1:808056304349:function:${self:service}-${self:provider.stage}-order-created-flow",
+            "arn:aws:lambda:${self:provider.region}:${aws:accountId}:function:${self:service}-${self:provider.stage}-order-created-flow",
           Payload: {
             "order.$": "$.order",
             action: "send-whats-app-message",
